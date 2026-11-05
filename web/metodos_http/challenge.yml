@@ -1,0 +1,20 @@
+name: "Métodos HTTP"
+author: "Track Ciberseguridad · CITT Antonio Varas"
+category: Web
+description: |
+  La consola heredada de LegacyDB deshabilitó el método GET en su endpoint de exportación, pero la exportación sigue viva por otro método. Encuéntralo.
+  
+  Objetivo en: https://methods.retos.cybervaras.xyz
+type: dynamic
+value: 150
+extra:
+  initial: 150
+  decay: 25
+  minimum: 150        # == initial -> puntaje fijo
+  # instancia fija en https://methods.retos.cybervaras.xyz (droplet retos, vía Caddy)
+flags:
+  - CITT{metodo_http_olvidado}
+tags:
+  - fácil
+state: hidden
+version: "0.1"

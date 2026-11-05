@@ -4,7 +4,7 @@
 |---|---|
 | **Categoría** | Crypto |
 | **Dificultad** | medio |
-| **Puntaje base** | 200 (dinámico) |
+| **Puntaje** | 200 (fijo: minimum == initial) |
 | **Despliegue** | estático (archivo de entrega) |
 | **Flag** | `CITT{rockyou_lo_tenia}` |
 
@@ -18,7 +18,7 @@ Identificar tipo (MD5/SHA1) con hashid. Crackear con `john`/`hashcat` + rockyou.
 
 ## Construcción del reto
 
-Generador toma palabras débiles (de rockyou), las hashea, y define la flag como su unión. Ver entrega/build.py.
+Generador toma palabras débiles (de rockyou), las hashea, y define la flag como su unión. Ver build/build.py.
 
 **Archivos de entrega:** `entrega/hashes.txt`
 

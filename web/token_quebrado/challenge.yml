@@ -3,15 +3,15 @@ author: "Track Ciberseguridad · CITT Antonio Varas"
 category: Web
 description: |
   La API entrega un JWT al iniciar sesión. El endpoint /admin exige un token de administrador. Falsifica uno.
-type: dynamic_docker
+  
+  Objetivo en: https://jwt.retos.cybervaras.xyz
+type: dynamic
 value: 350
 extra:
   initial: 350
   decay: 25
-  minimum: 350
-  # CTFd-whale: completar al cargar (imagen construida desde ./app)
-  # docker_image: cybervaras/token_quebrado:latest
-  # redirect_type: http   # http para web; direct para tcp
+  minimum: 350        # == initial -> puntaje fijo
+  # instancia fija en https://jwt.retos.cybervaras.xyz (droplet retos, vía Caddy)
 flags:
   - CITT{jwt_alg_none_es_peligroso}
 tags:

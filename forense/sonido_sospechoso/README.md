@@ -4,7 +4,7 @@
 |---|---|
 | **Categoría** | Forense |
 | **Dificultad** | medio |
-| **Puntaje base** | 250 (dinámico) |
+| **Puntaje** | 250 (fijo: minimum == initial) |
 | **Despliegue** | estático (archivo de entrega) |
 | **Flag** | `CITT{escucha_el_espectrograma}` |
 
@@ -22,7 +22,7 @@ Abrir el WAV en Audacity/Sonic Visualiser y ver el espectrograma: la flag está 
 
 ## Construcción del reto
 
-Generador sintetiza un WAV cuyo espectrograma dibuja el texto de la flag. Ver entrega/build.py (requiere numpy).
+Generador sintetiza un WAV cuyo espectrograma dibuja el texto de la flag. Ver build/build.py (requiere numpy).
 
 **Archivos de entrega:** `entrega/senal.wav`
 

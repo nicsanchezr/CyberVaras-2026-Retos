@@ -4,7 +4,7 @@
 |---|---|
 | **Categoría** | OSINT |
 | **Dificultad** | medio |
-| **Puntaje base** | 225 (dinámico) |
+| **Puntaje** | 225 (fijo: minimum == initial) |
 | **Despliegue** | estático (archivo de entrega) |
 | **Flag** | `CITT{git_log_recuerda_todo}` |
 
@@ -18,7 +18,7 @@ Clonar el repo sembrado. La flag se 'eliminó' en un commit posterior pero sigue
 
 ## Construcción del reto
 
-MANUAL: crear un repo público (org del track) donde un commit añade la flag y otro la 'borra'. pista.txt da la URL. Ver README.
+MANUAL (OBLIGATORIO antes de publicar): crear un repo público (org del track): un commit agrega un archivo con la flag de este reto (ver fila Flag arriba) y un commit posterior la 'borra'. Luego escribir la URL real del repo en pista.txt (hoy va en blanco). IMPORTANTE: la flag NO debe aparecer en pista.txt ni en archivos entregados; solo en el historial del repo.
 
 **Archivos de entrega:** `entrega/pista.txt`
 

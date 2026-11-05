@@ -1,6 +1,6 @@
-# docker-compose SOLO para pruebas locales de los 6 retos web.
-# En produccion, cada reto se despliega como imagen aislada por equipo con
-# CTFd-whale (ver import/README_import.md). Aqui cada uno expone un puerto fijo.
+# docker-compose SOLO para pruebas locales de los 10 retos web.
+# En produccion se usa compose.prod.yml (instancias fijas detras de Caddy).
+# Aqui cada uno expone un puerto fijo para probar en localhost.
 services:
   login_injectado:
     build: ./login_injectado
@@ -20,3 +20,15 @@ services:
   incluyeme:
     build: ./incluyeme
     ports: ["5006:5000"]
+  cazador_agentes:
+    build: ./cazador_agentes
+    ports: ["5007:5000"]
+  metodos_http:
+    build: ./metodos_http
+    ports: ["5008:5000"]
+  ssrf_interno:
+    build: ./ssrf_interno
+    ports: ["5009:5000"]
+  xxe_clasico:
+    build: ./xxe_clasico
+    ports: ["5010:5000"]

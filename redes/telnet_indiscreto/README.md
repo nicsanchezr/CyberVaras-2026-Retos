@@ -4,7 +4,7 @@
 |---|---|
 | **Categoría** | Redes |
 | **Dificultad** | fácil |
-| **Puntaje base** | 150 (dinámico) |
+| **Puntaje** | 150 (fijo: minimum == initial) |
 | **Despliegue** | estático (archivo de entrega) |
 | **Flag** | `CITT{telnet_es_inseguro}` |
 
@@ -18,7 +18,7 @@ Seguir el TCP stream del puerto 23. El usuario escribe un comando (p. ej. `echo 
 
 ## Construcción del reto
 
-Generador (scapy) simula sesión Telnet con la flag tecleada. Ver entrega/build.py.
+Generador (scapy) simula sesión Telnet con la flag tecleada. Ver build/build.py.
 
 **Archivos de entrega:** `entrega/telnet.pcap`
 

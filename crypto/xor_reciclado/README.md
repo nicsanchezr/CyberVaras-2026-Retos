@@ -4,7 +4,7 @@
 |---|---|
 | **Categoría** | Crypto |
 | **Dificultad** | medio |
-| **Puntaje base** | 275 (dinámico) |
+| **Puntaje** | 275 (fijo: minimum == initial) |
 | **Despliegue** | estático (archivo de entrega) |
 | **Flag** | `CITT{clave_repetida_mala_idea}` |
 
@@ -18,7 +18,7 @@ XOR de clave repetida (Vigenère binario). Estimar longitud de clave (Kasiski/Ha
 
 ## Construcción del reto
 
-Generador XOR de un texto largo (que contiene la flag) con clave de ~5-7 bytes repetida. Ver entrega/build.py.
+Generador XOR de un texto largo (que contiene la flag) con clave de ~5-7 bytes repetida. Ver build/build.py.
 
 **Archivos de entrega:** `entrega/cipher.bin`
 

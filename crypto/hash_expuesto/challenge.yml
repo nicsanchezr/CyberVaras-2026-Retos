@@ -8,7 +8,7 @@ value: 200
 extra:
   initial: 200
   decay: 25
-  minimum: 200
+  minimum: 200        # == initial -> puntaje fijo
 flags:
   - CITT{rockyou_lo_tenia}
 tags:

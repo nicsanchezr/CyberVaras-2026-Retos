@@ -8,7 +8,7 @@ value: 400
 extra:
   initial: 400
   decay: 25
-  minimum: 400
+  minimum: 400        # == initial -> puntaje fijo
 flags:
   - CITT{xor_en_tiempo_de_ejecucion}
 tags:

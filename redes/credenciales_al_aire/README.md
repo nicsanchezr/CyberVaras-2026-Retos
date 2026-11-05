@@ -4,7 +4,7 @@
 |---|---|
 | **Categoría** | Redes |
 | **Dificultad** | fácil |
-| **Puntaje base** | 150 (dinámico) |
+| **Puntaje** | 150 (fijo: minimum == initial) |
 | **Despliegue** | estático (archivo de entrega) |
 | **Flag** | `CITT{http_en_texto_claro}` |
 
@@ -18,7 +18,7 @@ Abrir en Wireshark, seguir el stream HTTP del POST de login, o `tshark -r captur
 
 ## Construcción del reto
 
-Generador (scapy) arma un pcap con un POST HTTP cuyo campo password es la flag. Ver entrega/build.py.
+Generador (scapy) arma un pcap con un POST HTTP cuyo campo password es la flag. Ver build/build.py.
 
 **Archivos de entrega:** `entrega/captura.pcap`
 

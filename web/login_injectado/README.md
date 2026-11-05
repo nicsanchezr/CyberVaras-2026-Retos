@@ -4,13 +4,15 @@
 |---|---|
 | **Categoría** | Web |
 | **Dificultad** | fácil |
-| **Puntaje base** | 100 (dinámico) |
-| **Despliegue** | whale (contenedor por equipo) |
+| **Puntaje** | 100 (fijo: minimum == initial) |
+| **Despliegue** | instancia web fija · https://login.retos.cybervaras.xyz (droplet retos, vía Caddy) |
 | **Flag** | `CITT{sql_injection_101}` |
 
 ## Enunciado (para el jugador)
 
 Un panel de login de lo más normal. ¿Seguro que valida bien lo que escribes? Entra como administrador.
+
+Objetivo en: https://login.retos.cybervaras.xyz
 
 ## Solución (writeup — NO publicar)
 

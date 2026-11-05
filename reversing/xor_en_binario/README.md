@@ -4,7 +4,7 @@
 |---|---|
 | **Categoría** | Reversing |
 | **Dificultad** | difícil |
-| **Puntaje base** | 400 (dinámico) |
+| **Puntaje** | 400 (fijo: minimum == initial) |
 | **Despliegue** | estático (archivo de entrega) |
 | **Flag** | `CITT{xor_en_tiempo_de_ejecucion}` |
 

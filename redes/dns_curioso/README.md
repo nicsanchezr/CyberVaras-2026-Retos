@@ -4,7 +4,7 @@
 |---|---|
 | **Categoría** | Redes |
 | **Dificultad** | medio |
-| **Puntaje base** | 300 (dinámico) |
+| **Puntaje** | 300 (fijo: minimum == initial) |
 | **Despliegue** | estático (archivo de entrega) |
 | **Flag** | `CITT{exfiltracion_por_dns}` |
 
@@ -22,7 +22,7 @@ Extraer los qname de las consultas (`tshark -r dns.pcap -Y dns -T fields -e dns.
 
 ## Construcción del reto
 
-Generador (scapy) crea consultas DNS cuyos subdominios son la flag troceada en hex. Ver entrega/build.py.
+Generador (scapy) crea consultas DNS cuyos subdominios son la flag troceada en hex. Ver build/build.py.
 
 **Archivos de entrega:** `entrega/dns.pcap`
 

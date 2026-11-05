@@ -4,13 +4,15 @@
 |---|---|
 | **Categoría** | Web |
 | **Dificultad** | difícil |
-| **Puntaje base** | 350 (dinámico) |
-| **Despliegue** | whale (contenedor por equipo) |
+| **Puntaje** | 350 (fijo: minimum == initial) |
+| **Despliegue** | instancia web fija · https://jwt.retos.cybervaras.xyz (droplet retos, vía Caddy) |
 | **Flag** | `CITT{jwt_alg_none_es_peligroso}` |
 
 ## Enunciado (para el jugador)
 
 La API entrega un JWT al iniciar sesión. El endpoint /admin exige un token de administrador. Falsifica uno.
+
+Objetivo en: https://jwt.retos.cybervaras.xyz
 
 ## Pista (configurable en CTFd)
 

@@ -42,13 +42,14 @@ for cat in CATS:
     for ymlp in sorted(glob.glob(os.path.join(ROOT, cat, "*", "challenge.yml"))):
         d = parse_yaml(ymlp)
         slug = os.path.basename(os.path.dirname(ymlp))
-        is_whale = d.get("type") == "dynamic_docker"
+        # Plan B: los web son instancias fijas externas (no dynamic_docker).
+        # Se distinguen por categoría, no por tipo.
+        is_web = cat == "web"
         flag = d["flags"][0] if d["flags"] else ""
         tag = d["tags"][0] if d["tags"] else ""
-        desc1 = d.get("description", "").split("\n")[0]
         rows_all.append([cat, slug, d.get("name"), d.get("category"),
-                         d.get("value"), "whale" if is_whale else "static", flag, tag])
-        if not is_whale:
+                         d.get("value"), "web (instancia Caddy)" if is_web else "static", flag, tag])
+        if not is_web:
             # columnas compatibles con el importador CSV de CTFd (un flag/tag por reto)
             rows_static.append([d.get("name"), d.get("description"), d.get("category"),
                                 d.get("value"), "dynamic", "hidden", flag, tag])

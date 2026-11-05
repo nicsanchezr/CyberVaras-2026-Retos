@@ -3,15 +3,15 @@ author: "Track Ciberseguridad · CITT Antonio Varas"
 category: Web
 description: |
   El administrador creyó que esconder rutas en robots.txt bastaba. Spoiler: no basta.
-type: dynamic_docker
+  
+  Objetivo en: https://robots.retos.cybervaras.xyz
+type: dynamic
 value: 125
 extra:
   initial: 125
   decay: 25
-  minimum: 120
-  # CTFd-whale: completar al cargar (imagen construida desde ./app)
-  # docker_image: cybervaras/robots_traviesos:latest
-  # redirect_type: http   # http para web; direct para tcp
+  minimum: 125        # == initial -> puntaje fijo
+  # instancia fija en https://robots.retos.cybervaras.xyz (droplet retos, vía Caddy)
 flags:
   - CITT{nunca_confies_en_robots_txt}
 tags:

@@ -1,0 +1,112 @@
+# CyberVaras 2026 — PRODUCCIÓN (droplet de retos, retos.cybervaras.xyz)
+# Las 6 apps web como instancias fijas + Caddy (HTTPS por subdominio).
+# Plan B: NO se usa CTFd-whale; CTFd (droplet principal) solo apunta a estas URLs.
+#
+# Levantar:   docker compose -f compose.prod.yml up -d --build
+# Bajar:      docker compose -f compose.prod.yml down
+# Firewall:   ufw allow 22,80,443/tcp   (nada más)
+#
+# Las 5 apps leen su flag de la variable FLAG; incluyeme la recibe como build arg
+# (la escribe en /flag.txt, objetivo del LFI). Flag COMPARTIDA (sin aislamiento por
+# equipo): los 6 retos son stateless, así que compartir instancia no rompe nada;
+# vigilar el scoreboard por si un equipo pasa la flag a otro.
+
+services:
+  login_injectado:
+    build: ./login_injectado
+    environment:
+      FLAG: "CITT{sql_injection_101}"
+    restart: unless-stopped
+    expose: ["5000"]
+
+  robots_traviesos:
+    build: ./robots_traviesos
+    environment:
+      FLAG: "CITT{nunca_confies_en_robots_txt}"
+    restart: unless-stopped
+    expose: ["5000"]
+
+  cambia_el_id:
+    build: ./cambia_el_id
+    environment:
+      FLAG: "CITT{idor_acceso_horizontal}"
+    restart: unless-stopped
+    expose: ["5000"]
+
+  galleta_falsa:
+    build: ./galleta_falsa
+    environment:
+      FLAG: "CITT{cookies_no_son_para_confiar}"
+    restart: unless-stopped
+    expose: ["5000"]
+
+  token_quebrado:
+    build: ./token_quebrado
+    environment:
+      FLAG: "CITT{jwt_alg_none_es_peligroso}"
+    restart: unless-stopped
+    expose: ["5000"]
+
+  incluyeme:
+    build:
+      context: ./incluyeme
+      args:
+        FLAG: "CITT{lfi_hasta_la_raiz}"
+    restart: unless-stopped
+    expose: ["5000"]
+
+  # ---- retos web nuevos (basados en el archivo 2025) ----
+  cazador_agentes:
+    build: ./cazador_agentes
+    environment:
+      FLAG: "CITT{el_user_agent_te_delata}"
+    restart: unless-stopped
+    expose: ["5000"]
+
+  metodos_http:
+    build: ./metodos_http
+    environment:
+      FLAG: "CITT{metodo_http_olvidado}"
+    restart: unless-stopped
+    expose: ["5000"]
+
+  ssrf_interno:
+    build: ./ssrf_interno
+    environment:
+      FLAG: "CITT{ssrf_al_metadata_interno}"
+    restart: unless-stopped
+    expose: ["5000"]
+
+  xxe_clasico:
+    build:
+      context: ./xxe_clasico
+      args:
+        FLAG: "CITT{xxe_entidades_externas}"
+    restart: unless-stopped
+    expose: ["5000"]
+
+  caddy:
+    image: caddy:2.8-alpine
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+    depends_on:
+      - login_injectado
+      - robots_traviesos
+      - cambia_el_id
+      - galleta_falsa
+      - token_quebrado
+      - incluyeme
+      - cazador_agentes
+      - metodos_http
+      - ssrf_interno
+      - xxe_clasico
+
+volumes:
+  caddy_data:
+  caddy_config:

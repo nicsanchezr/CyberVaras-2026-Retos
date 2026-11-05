@@ -1,0 +1,52 @@
+# CyberVaras 2026 — Caddy en el droplet de retos (retos.cybervaras.xyz)
+# Rutea cada subdominio al contenedor del reto y gestiona HTTPS (Let's Encrypt)
+# automáticamente. El wildcard *.retos.cybervaras.xyz ya resuelve a la IP del droplet.
+#
+# Supuesto: cada app escucha en el puerto 5000 dentro de su contenedor.
+# Si cambia, ajustar los puertos de abajo.
+
+{
+    # correo para los avisos de Let's Encrypt (reemplazar)
+    email tu_correo@ejemplo.cl
+}
+
+login.retos.cybervaras.xyz {
+    reverse_proxy login_injectado:5000
+}
+
+robots.retos.cybervaras.xyz {
+    reverse_proxy robots_traviesos:5000
+}
+
+idor.retos.cybervaras.xyz {
+    reverse_proxy cambia_el_id:5000
+}
+
+cookie.retos.cybervaras.xyz {
+    reverse_proxy galleta_falsa:5000
+}
+
+jwt.retos.cybervaras.xyz {
+    reverse_proxy token_quebrado:5000
+}
+
+lfi.retos.cybervaras.xyz {
+    reverse_proxy incluyeme:5000
+}
+
+# ---- retos web nuevos (basados en el archivo 2025) ----
+ua.retos.cybervaras.xyz {
+    reverse_proxy cazador_agentes:5000
+}
+
+methods.retos.cybervaras.xyz {
+    reverse_proxy metodos_http:5000
+}
+
+ssrf.retos.cybervaras.xyz {
+    reverse_proxy ssrf_interno:5000
+}
+
+xxe.retos.cybervaras.xyz {
+    reverse_proxy xxe_clasico:5000
+}

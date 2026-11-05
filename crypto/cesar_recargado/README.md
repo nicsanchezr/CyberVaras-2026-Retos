@@ -4,7 +4,7 @@
 |---|---|
 | **Categoría** | Crypto |
 | **Dificultad** | fácil |
-| **Puntaje base** | 100 (dinámico) |
+| **Puntaje** | 100 (fijo: minimum == initial) |
 | **Despliegue** | estático (archivo de entrega) |
 | **Flag** | `CITT{el_cesar_no_protege_nada}` |
 
@@ -18,7 +18,7 @@ Cifrado César con desplazamiento fijo. Probar los 25 corrimientos (brute force)
 
 ## Construcción del reto
 
-Generador cifra la flag (y un texto señuelo) con César shift fijo. Ver entrega/build.py.
+Generador cifra la flag (y un texto señuelo) con César shift fijo. Ver build/build.py.
 
 **Archivos de entrega:** `entrega/mensaje.txt`
 

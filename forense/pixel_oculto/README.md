@@ -4,7 +4,7 @@
 |---|---|
 | **Categoría** | Forense |
 | **Dificultad** | fácil |
-| **Puntaje base** | 150 (dinámico) |
+| **Puntaje** | 150 (fijo: minimum == initial) |
 | **Despliegue** | estático (archivo de entrega) |
 | **Flag** | `CITT{el_bit_menos_significativo}` |
 
@@ -18,7 +18,7 @@ Esteganografía LSB. Usar zsteg (`zsteg secreto.png`) o stegsolve, o script que 
 
 ## Construcción del reto
 
-Generador incrusta la flag en el LSB del canal rojo de un PNG. Ver entrega/build.py.
+Generador incrusta la flag en el LSB del canal rojo de un PNG. Ver build/build.py.
 
 **Archivos de entrega:** `entrega/secreto.png`
 

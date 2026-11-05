@@ -8,7 +8,7 @@ value: 250
 extra:
   initial: 250
   decay: 25
-  minimum: 250
+  minimum: 250        # == initial -> puntaje fijo
 flags:
   - CITT{escucha_el_espectrograma}
 tags:

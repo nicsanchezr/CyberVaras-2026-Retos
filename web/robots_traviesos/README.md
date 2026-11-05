@@ -4,13 +4,15 @@
 |---|---|
 | **Categoría** | Web |
 | **Dificultad** | fácil |
-| **Puntaje base** | 125 (dinámico) |
-| **Despliegue** | whale (contenedor por equipo) |
+| **Puntaje** | 125 (fijo: minimum == initial) |
+| **Despliegue** | instancia web fija · https://robots.retos.cybervaras.xyz (droplet retos, vía Caddy) |
 | **Flag** | `CITT{nunca_confies_en_robots_txt}` |
 
 ## Enunciado (para el jugador)
 
 El administrador creyó que esconder rutas en robots.txt bastaba. Spoiler: no basta.
+
+Objetivo en: https://robots.retos.cybervaras.xyz
 
 ## Solución (writeup — NO publicar)
 

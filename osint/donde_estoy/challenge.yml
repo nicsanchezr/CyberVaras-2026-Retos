@@ -8,9 +8,9 @@ value: 150
 extra:
   initial: 150
   decay: 25
-  minimum: 150
+  minimum: 150        # == initial -> puntaje fijo
 flags:
-  - CITT{geolocalizado_sin_exif}
+  - CITT{definir_ciudad_lugar}
 tags:
   - fácil
 files:

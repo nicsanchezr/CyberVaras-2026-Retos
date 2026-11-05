@@ -3,15 +3,15 @@ author: "Track Ciberseguridad · CITT Antonio Varas"
 category: Web
 description: |
   Inicia sesión con la cuenta de prueba que te damos y revisa tu perfil. La URL tiene un número... ¿qué pasa si lo cambias? Encuentra el perfil del administrador.
-type: dynamic_docker
+  
+  Objetivo en: https://idor.retos.cybervaras.xyz
+type: dynamic
 value: 200
 extra:
   initial: 200
   decay: 25
-  minimum: 200
-  # CTFd-whale: completar al cargar (imagen construida desde ./app)
-  # docker_image: cybervaras/cambia_el_id:latest
-  # redirect_type: http   # http para web; direct para tcp
+  minimum: 200        # == initial -> puntaje fijo
+  # instancia fija en https://idor.retos.cybervaras.xyz (droplet retos, vía Caddy)
 flags:
   - CITT{idor_acceso_horizontal}
 tags:

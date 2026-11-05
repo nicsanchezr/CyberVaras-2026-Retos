@@ -4,7 +4,7 @@
 |---|---|
 | **Categoría** | Forense |
 | **Dificultad** | medio |
-| **Puntaje base** | 250 (dinámico) |
+| **Puntaje** | 250 (fijo: minimum == initial) |
 | **Despliegue** | estático (archivo de entrega) |
 | **Flag** | `CITT{el_log_delata_al_atacante}` |
 
@@ -18,7 +18,7 @@ Filtrar el access.log: una IP hace fuzzing (muchos 404) y luego 200 en una ruta 
 
 ## Construcción del reto
 
-Generador crea un access.log realista con ruido + la secuencia del atacante; la flag va en base64 en un parámetro. Ver entrega/build.py.
+Generador crea un access.log realista con ruido + la secuencia del atacante; la flag va en base64 en un parámetro. Ver build/build.py.
 
 **Archivos de entrega:** `entrega/access.log`
 

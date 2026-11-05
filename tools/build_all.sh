@@ -6,23 +6,26 @@ cd "$(dirname "$0")/.."
 echo "== scaffold =="
 python3 tools/build_scaffold.py
 
+echo "== scoring fijo (minimum == initial) =="
+python3 tools/fijar_puntaje_fijo.py
+
 echo "== warmup =="
-bash   warmup/terminal_basica/entrega/build.sh
-python3 warmup/capas/entrega/build.py
+bash   warmup/terminal_basica/build/build.sh
+python3 warmup/capas/build/build.py
 
 echo "== crypto =="
 for r in cesar_recargado xor_de_bolsillo hash_expuesto xor_reciclado rsa_fragil; do
-  python3 crypto/$r/entrega/build.py
+  python3 crypto/$r/build/build.py
 done
 
 echo "== forense =="
 for r in metadatos_delatores pixel_oculto zip_terco sonido_sospechoso bitacora_rota usb_perdido; do
-  python3 forense/$r/entrega/build.py
+  python3 forense/$r/build/build.py
 done
 
 echo "== redes =="
 for r in credenciales_al_aire telnet_indiscreto transferencia_ftp dns_curioso; do
-  python3 redes/$r/entrega/build.py
+  python3 redes/$r/build/build.py
 done
 
 echo "== reversing =="

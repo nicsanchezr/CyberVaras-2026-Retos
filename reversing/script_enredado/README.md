@@ -4,7 +4,7 @@
 |---|---|
 | **Categoría** | Reversing |
 | **Dificultad** | medio |
-| **Puntaje base** | 250 (dinámico) |
+| **Puntaje** | 250 (fijo: minimum == initial) |
 | **Despliegue** | estático (archivo de entrega) |
 | **Flag** | `CITT{ofuscar_no_es_cifrar}` |
 

@@ -3,15 +3,15 @@ author: "Track Ciberseguridad · CITT Antonio Varas"
 category: Web
 description: |
   La aplicación recuerda quién eres con una cookie. Pero la cookie dice más de lo que debería... y nadie comprueba que no la toques.
-type: dynamic_docker
+  
+  Objetivo en: https://cookie.retos.cybervaras.xyz
+type: dynamic
 value: 250
 extra:
   initial: 250
   decay: 25
-  minimum: 250
-  # CTFd-whale: completar al cargar (imagen construida desde ./app)
-  # docker_image: cybervaras/galleta_falsa:latest
-  # redirect_type: http   # http para web; direct para tcp
+  minimum: 250        # == initial -> puntaje fijo
+  # instancia fija en https://cookie.retos.cybervaras.xyz (droplet retos, vía Caddy)
 flags:
   - CITT{cookies_no_son_para_confiar}
 tags:

@@ -1,1 +1,1 @@
-CITT{geolocalizado_sin_exif}
+CITT{definir_ciudad_lugar}

@@ -8,7 +8,7 @@ value: 225
 extra:
   initial: 225
   decay: 25
-  minimum: 220
+  minimum: 225        # == initial -> puntaje fijo
 flags:
   - CITT{ftp_export_objects}
 tags:

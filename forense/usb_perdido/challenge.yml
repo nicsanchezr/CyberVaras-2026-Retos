@@ -8,7 +8,7 @@ value: 275
 extra:
   initial: 275
   decay: 25
-  minimum: 270
+  minimum: 275        # == initial -> puntaje fijo
 flags:
   - CITT{nada_se_borra_del_todo}
 tags:

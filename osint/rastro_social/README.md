@@ -4,7 +4,7 @@
 |---|---|
 | **Categoría** | OSINT |
 | **Dificultad** | medio |
-| **Puntaje base** | 250 (dinámico) |
+| **Puntaje** | 250 (fijo: minimum == initial) |
 | **Despliegue** | estático (archivo de entrega) |
 | **Flag** | `CITT{un_alias_los_une_a_todos}` |
 
@@ -18,7 +18,7 @@ A partir del alias, buscar con sherlock/whatsmyname el perfil en varias redes (t
 
 ## Construcción del reto
 
-MANUAL: crear un perfil ficticio con alias único en 2-3 plataformas (o simularlo en páginas propias) y dejar la flag en una bio. dossier.txt da el punto de partida. Ver README.
+MANUAL (OBLIGATORIO antes de publicar): crear un perfil ficticio con un alias único en 2-3 plataformas (o páginas propias) y dejar la flag de este reto (ver fila Flag arriba) en una de las bios. Luego escribir ese alias real en dossier.txt (hoy va en blanco). IMPORTANTE: la flag NO debe aparecer en dossier.txt ni en ningún archivo entregado al jugador; solo en el perfil sembrado.
 
 **Archivos de entrega:** `entrega/dossier.txt`
 

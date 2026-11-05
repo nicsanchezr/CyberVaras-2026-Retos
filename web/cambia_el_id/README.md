@@ -4,13 +4,15 @@
 |---|---|
 | **Categoría** | Web |
 | **Dificultad** | medio |
-| **Puntaje base** | 200 (dinámico) |
-| **Despliegue** | whale (contenedor por equipo) |
+| **Puntaje** | 200 (fijo: minimum == initial) |
+| **Despliegue** | instancia web fija · https://idor.retos.cybervaras.xyz (droplet retos, vía Caddy) |
 | **Flag** | `CITT{idor_acceso_horizontal}` |
 
 ## Enunciado (para el jugador)
 
 Inicia sesión con la cuenta de prueba que te damos y revisa tu perfil. La URL tiene un número... ¿qué pasa si lo cambias? Encuentra el perfil del administrador.
+
+Objetivo en: https://idor.retos.cybervaras.xyz
 
 ## Solución (writeup — NO publicar)
 

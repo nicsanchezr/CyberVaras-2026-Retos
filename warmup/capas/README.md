@@ -4,21 +4,21 @@
 |---|---|
 | **Categoría** | Warmup |
 | **Dificultad** | fácil |
-| **Puntaje base** | 100 (dinámico) |
+| **Puntaje** | 100 (fijo: minimum == initial) |
 | **Despliegue** | estático (archivo de entrega) |
 | **Flag** | `CITT{capa_tras_capa_tras_capa}` |
 
 ## Enunciado (para el jugador)
 
-Base64 sobre hex sobre base64... la flag está envuelta en varias codificaciones. Ve pelando una a una.
+La flag está envuelta en varias capas de codificación (base64, hexadecimal y un corrimiento de letras). Ve pelando una a una hasta llegar al centro.
 
 ## Solución (writeup — NO publicar)
 
-Cadena: base64 → hex → base64 → rot13 (o similar). Resolver con CyberChef 'Magic', o a mano: `base64 -d`, `xxd -r -p`, etc.
+Cadena exacta: base64 → hex → base64 → rot13. Resolver con CyberChef 'Magic' (recursivo), o a mano: `base64 -d`, `xxd -r -p`, `base64 -d`, y finalmente rot13.
 
 ## Construcción del reto
 
-Generador aplica base64(hex(base64(rot13(flag)))) y guarda en capas.txt. Ver entrega/build.py.
+Generador aplica base64(hex(base64(rot13(flag)))) y guarda en capas.txt. Ver build/build.py.
 
 **Archivos de entrega:** `entrega/capas.txt`
 

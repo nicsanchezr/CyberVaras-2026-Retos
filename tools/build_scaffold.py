@@ -20,6 +20,20 @@ CAT_LABEL = {
     "reversing": "Reversing",
 }
 
+# Plan B: los 6 web corren como instancias fijas en el droplet de retos,
+# publicadas por Caddy en un subdominio cada una. Mapa slug -> subdominio.
+WEB_HOST = "retos.cybervaras.xyz"
+WEB_SUBDOMAIN = {
+    "login_injectado": "login",
+    "robots_traviesos": "robots",
+    "cambia_el_id":     "idor",
+    "galleta_falsa":    "cookie",
+    "token_quebrado":   "jwt",
+    "incluyeme":        "lfi",
+}
+def web_url(slug):
+    return f"https://{WEB_SUBDOMAIN[slug]}.{WEB_HOST}"
+
 # cada reto: slug, cat, title, diff, points, flag, deploy, hint, files, enunciado, solucion, build
 C = []
 def add(**k): C.append(k)
@@ -35,13 +49,13 @@ add(slug="terminal_basica", cat="warmup", title="Terminal Básica", diff="fácil
     flag="CITT{grep_es_tu_amigo}", deploy="static", hint=None, files=["pistas.tar.gz"],
     enunciado="Te dejamos un montón de archivos en un .tar.gz. En uno de ellos, en alguna línea perdida, está la flag. Descomprime y busca con las herramientas de siempre.",
     solucion="`tar xzf pistas.tar.gz` y luego `grep -rao 'CITT{[^}]*}' .` (recursivo, texto). La flag está dentro de uno de ~200 archivos de ruido.",
-    build="Generador crea 200 archivos .txt de basura y mete la flag en una línea de uno. Empaqueta en pistas.tar.gz. Ver entrega/build.sh.")
+    build="Generador crea 200 archivos .txt de basura y mete la flag en una línea de uno. Empaqueta en pistas.tar.gz. Ver build/build.sh.")
 
 add(slug="capas", cat="warmup", title="Capas", diff="fácil", points=100,
     flag="CITT{capa_tras_capa_tras_capa}", deploy="static", hint=None, files=["capas.txt"],
-    enunciado="Base64 sobre hex sobre base64... la flag está envuelta en varias codificaciones. Ve pelando una a una.",
-    solucion="Cadena: base64 → hex → base64 → rot13 (o similar). Resolver con CyberChef 'Magic', o a mano: `base64 -d`, `xxd -r -p`, etc.",
-    build="Generador aplica base64(hex(base64(rot13(flag)))) y guarda en capas.txt. Ver entrega/build.py.")
+    enunciado="La flag está envuelta en varias capas de codificación (base64, hexadecimal y un corrimiento de letras). Ve pelando una a una hasta llegar al centro.",
+    solucion="Cadena exacta: base64 → hex → base64 → rot13. Resolver con CyberChef 'Magic' (recursivo), o a mano: `base64 -d`, `xxd -r -p`, `base64 -d`, y finalmente rot13.",
+    build="Generador aplica base64(hex(base64(rot13(flag)))) y guarda en capas.txt. Ver build/build.py.")
 
 # ---------------------------------------------------------------- WEB (whale)
 add(slug="login_injectado", cat="web", title="Login Injectado", diff="fácil", points=100,
@@ -87,119 +101,119 @@ add(slug="cesar_recargado", cat="crypto", title="César Recargado", diff="fácil
     flag="CITT{el_cesar_no_protege_nada}", deploy="static", hint=None, files=["mensaje.txt"],
     enunciado="Un mensaje cifrado con un método que tiene 2000 años. Rómpelo.",
     solucion="Cifrado César con desplazamiento fijo. Probar los 25 corrimientos (brute force) o análisis de frecuencia. El prefijo `CITT{` ayuda a encontrar el shift.",
-    build="Generador cifra la flag (y un texto señuelo) con César shift fijo. Ver entrega/build.py.")
+    build="Generador cifra la flag (y un texto señuelo) con César shift fijo. Ver build/build.py.")
 
 add(slug="xor_de_bolsillo", cat="crypto", title="XOR de Bolsillo", diff="fácil", points=125,
     flag="CITT{xor_un_byte_es_trivial}", deploy="static", hint=None, files=["cipher.hex"],
     enunciado="Cifrado XOR con una clave de un solo byte. 256 posibilidades. Tú puedes.",
     solucion="Fuerza bruta de los 256 bytes de clave; el candidato legible (empieza con `CITT{`) es la flag. CyberChef 'XOR Brute Force' o script en Python.",
-    build="Generador XOR de la flag con un byte fijo, salida en hex. Ver entrega/build.py.")
+    build="Generador XOR de la flag con un byte fijo, salida en hex. Ver build/build.py.")
 
 add(slug="hash_expuesto", cat="crypto", title="Hash Expuesto", diff="medio", points=200,
     flag="CITT{rockyou_lo_tenia}", deploy="static", hint=None, files=["hashes.txt"],
     enunciado="Filtramos una tabla de hashes. Varios son contraseñas comunes. Crackéalas: la flag se arma con las contraseñas recuperadas.",
     solucion="Identificar tipo (MD5/SHA1) con hashid. Crackear con `john`/`hashcat` + rockyou. Las palabras recuperadas, concatenadas con `_`, forman el contenido de la flag.",
-    build="Generador toma palabras débiles (de rockyou), las hashea, y define la flag como su unión. Ver entrega/build.py.")
+    build="Generador toma palabras débiles (de rockyou), las hashea, y define la flag como su unión. Ver build/build.py.")
 
 add(slug="xor_reciclado", cat="crypto", title="XOR Reciclado", diff="medio", points=275,
     flag="CITT{clave_repetida_mala_idea}", deploy="static", hint=None, files=["cipher.bin"],
     enunciado="Reusaron una clave corta para cifrar un texto largo con XOR. Ese es su error.",
     solucion="XOR de clave repetida (Vigenère binario). Estimar longitud de clave (Kasiski/Hamming), luego resolver byte a byte por frecuencia. xortool: `xortool cipher.bin`. La flag va embebida en el texto plano.",
-    build="Generador XOR de un texto largo (que contiene la flag) con clave de ~5-7 bytes repetida. Ver entrega/build.py.")
+    build="Generador XOR de un texto largo (que contiene la flag) con clave de ~5-7 bytes repetida. Ver build/build.py.")
 
 add(slug="rsa_fragil", cat="crypto", title="RSA Frágil", diff="medio", points=250,
     flag="CITT{primos_pequenos_rsa_roto}", deploy="static",
     hint="n es pequeño. ¿Qué pasa si lo factorizas? Prueba factordb.", files=["rsa.txt"],
     enunciado="Te damos n, e y c de un cifrado RSA. El problema: eligieron primos demasiado pequeños.",
     solucion="Factorizar n (pequeño) con factordb o sympy.factorint → p,q. Calcular φ=(p-1)(q-1), d=inverse(e,φ), m=c^d mod n. Convertir m a bytes → flag.",
-    build="Generador crea RSA con p,q pequeños, cifra la flag. Guarda n,e,c. Ver entrega/build.py.")
+    build="Generador crea RSA con p,q pequeños, cifra la flag. Guarda n,e,c. Ver build/build.py.")
 
 # ---------------------------------------------------------------- FORENSE (static)
 add(slug="metadatos_delatores", cat="forense", title="Metadatos Delatores", diff="fácil", points=100,
     flag="CITT{los_metadatos_hablan}", deploy="static", hint=None, files=["foto.jpg"],
     enunciado="Una foto de lo más común. Pero las fotos guardan más de lo que muestran. Revisa sus metadatos.",
     solucion="`exiftool foto.jpg`. La flag está en un campo EXIF (Comment / Artist / UserComment).",
-    build="Generador crea un JPG y escribe la flag en EXIF UserComment (piexif/exiftool). Ver entrega/build.py.")
+    build="Generador crea un JPG y escribe la flag en EXIF UserComment (piexif/exiftool). Ver build/build.py.")
 
 add(slug="pixel_oculto", cat="forense", title="Píxel Oculto", diff="fácil", points=150,
     flag="CITT{el_bit_menos_significativo}", deploy="static", hint=None, files=["secreto.png"],
     enunciado="Esta imagen esconde texto en sus bits menos significativos. Extráelo.",
     solucion="Esteganografía LSB. Usar zsteg (`zsteg secreto.png`) o stegsolve, o script que lee el LSB del canal R. También probar `strings`/`binwalk` primero.",
-    build="Generador incrusta la flag en el LSB del canal rojo de un PNG. Ver entrega/build.py.")
+    build="Generador incrusta la flag en el LSB del canal rojo de un PNG. Ver build/build.py.")
 
 add(slug="zip_terco", cat="forense", title="ZIP Terco", diff="medio", points=225,
     flag="CITT{binwalk_siempre_gana}", deploy="static", hint=None, files=["portada.png"],
     enunciado="Una imagen inocente... que pesa demasiado. Algo trae pegado detrás.",
     solucion="`binwalk portada.png` revela un ZIP anexado. `binwalk -e` o `unzip` lo extrae. El ZIP pide contraseña; la pista está en un comentario del PNG o en los metadatos. Dentro, la flag.",
-    build="Generador concatena un ZIP (con flag.txt, protegido) al final de un PNG; pone la pass en un chunk tEXt. Ver entrega/build.py.")
+    build="Generador concatena un ZIP (con flag.txt, protegido) al final de un PNG; pone la pass en un chunk tEXt. Ver build/build.py.")
 
 add(slug="sonido_sospechoso", cat="forense", title="Sonido Sospechoso", diff="medio", points=250,
     flag="CITT{escucha_el_espectrograma}", deploy="static",
     hint="No se escucha, se ve. Abre el espectrograma en Audacity o Sonic Visualiser.", files=["senal.wav"],
     enunciado="Un audio con un pitido raro. La flag no está en lo que oyes, sino en lo que ves.",
     solucion="Abrir el WAV en Audacity/Sonic Visualiser y ver el espectrograma: la flag está 'dibujada' en las frecuencias.",
-    build="Generador sintetiza un WAV cuyo espectrograma dibuja el texto de la flag. Ver entrega/build.py (requiere numpy).")
+    build="Generador sintetiza un WAV cuyo espectrograma dibuja el texto de la flag. Ver build/build.py (requiere numpy).")
 
 add(slug="bitacora_rota", cat="forense", title="Bitácora Rota", diff="medio", points=250,
     flag="CITT{el_log_delata_al_atacante}", deploy="static", hint=None, files=["access.log"],
     enunciado="Alguien atacó este servidor web. Entre miles de líneas de log hay una serie de peticiones sospechosas. Reconstruye el ataque y encuentra la flag.",
     solucion="Filtrar el access.log: una IP hace fuzzing (muchos 404) y luego 200 en una ruta rara. Esa IP, en una petición, exfiltra la flag codificada en base64 dentro de un parámetro/User-Agent. Decodificar.",
-    build="Generador crea un access.log realista con ruido + la secuencia del atacante; la flag va en base64 en un parámetro. Ver entrega/build.py.")
+    build="Generador crea un access.log realista con ruido + la secuencia del atacante; la flag va en base64 en un parámetro. Ver build/build.py.")
 
 add(slug="usb_perdido", cat="forense", title="USB Perdido", diff="medio", points=275,
     flag="CITT{nada_se_borra_del_todo}", deploy="static",
     hint="Borrar no es lo mismo que destruir. Prueba foremost o photorec sobre la imagen.", files=["usb.img"],
     enunciado="Encontramos un pendrive 'vacío'. La imagen de disco dice otra cosa. Recupera lo que borraron.",
     solucion="`foremost usb.img` o `photorec` recuperan un archivo borrado (imagen/txt) con la flag. También `strings usb.img | grep CITT` puede funcionar si no se sobrescribió.",
-    build="Generador crea una imagen FAT, escribe un archivo con la flag, lo 'borra' y deja el contenido recuperable. Ver entrega/build.sh.")
+    build="Generador crea una imagen FAT, escribe un archivo con la flag, lo 'borra' y deja el contenido recuperable. Ver build/build.sh.")
 
 # ---------------------------------------------------------------- REDES (static)
 add(slug="credenciales_al_aire", cat="redes", title="Credenciales al Aire", diff="fácil", points=150,
     flag="CITT{http_en_texto_claro}", deploy="static", hint=None, files=["captura.pcap"],
     enunciado="Capturamos tráfico de una red. Alguien inició sesión por HTTP (sin HTTPS). Sus credenciales viajaron en claro... y una de ellas es la flag.",
     solucion="Abrir en Wireshark, seguir el stream HTTP del POST de login, o `tshark -r captura.pcap -Y http.request.method==POST`. La contraseña enviada es la flag.",
-    build="Generador (scapy) arma un pcap con un POST HTTP cuyo campo password es la flag. Ver entrega/build.py.")
+    build="Generador (scapy) arma un pcap con un POST HTTP cuyo campo password es la flag. Ver build/build.py.")
 
 add(slug="telnet_indiscreto", cat="redes", title="Telnet Indiscreto", diff="fácil", points=150,
     flag="CITT{telnet_es_inseguro}", deploy="static", hint=None, files=["telnet.pcap"],
     enunciado="Telnet no cifra nada. Reconstruye la sesión de este pcap y lee lo que el usuario escribió.",
     solucion="Seguir el TCP stream del puerto 23. El usuario escribe un comando (p. ej. `echo CITT{...}`) visible carácter a carácter en el stream.",
-    build="Generador (scapy) simula sesión Telnet con la flag tecleada. Ver entrega/build.py.")
+    build="Generador (scapy) simula sesión Telnet con la flag tecleada. Ver build/build.py.")
 
 add(slug="transferencia_ftp", cat="redes", title="Transferencia FTP", diff="medio", points=225,
     flag="CITT{ftp_export_objects}", deploy="static", hint=None, files=["ftp.pcap"],
     enunciado="En esta captura alguien transfirió un archivo por FTP. Recupéralo: dentro está la flag.",
     solucion="Identificar el canal de datos FTP (puerto negociado por PASV). En Wireshark: Follow TCP Stream del canal de datos → guardar bytes como archivo. O `tshark` export. El archivo contiene la flag.",
-    build="Generador (scapy) simula control FTP + canal de datos transfiriendo un .txt con la flag. Ver entrega/build.py.")
+    build="Generador (scapy) simula control FTP + canal de datos transfiriendo un .txt con la flag. Ver build/build.py.")
 
 add(slug="dns_curioso", cat="redes", title="DNS Curioso", diff="medio", points=300,
     flag="CITT{exfiltracion_por_dns}", deploy="static",
     hint="Mira los subdominios consultados. ¿Por qué son tan largos y raros? Pruébalos como base32/hex.", files=["dns.pcap"],
     enunciado="Un host hace un montón de consultas DNS a un dominio sospechoso, con subdominios larguísimos. Están exfiltrando datos. Recupéralos.",
     solucion="Extraer los qname de las consultas (`tshark -r dns.pcap -Y dns -T fields -e dns.qry.name`). Los subdominios son trozos hex/base32 que, concatenados y decodificados, dan la flag.",
-    build="Generador (scapy) crea consultas DNS cuyos subdominios son la flag troceada en hex. Ver entrega/build.py.")
+    build="Generador (scapy) crea consultas DNS cuyos subdominios son la flag troceada en hex. Ver build/build.py.")
 
 # ---------------------------------------------------------------- OSINT (static)
 add(slug="donde_estoy", cat="osint", title="¿Dónde Estoy?", diff="fácil", points=150,
-    flag="CITT{geolocalizado_sin_exif}", deploy="static",
+    flag="CITT{definir_ciudad_lugar}", deploy="static",
     hint=None, files=["lugar.jpg", "pista.txt"],
     enunciado="Esta foto NO tiene metadatos de ubicación. Pero se reconoce el lugar. Identifícalo: la flag es el nombre del lugar en el formato que indica la pista.",
-    solucion="Reconocer el hito visible (edificio/monumento reconocible de Santiago o del campus). Búsqueda inversa de imagen (Google Lens/Yandex). La flag se arma con el nombre del lugar normalizado según pista.txt.",
-    build="MANUAL: elegir una foto propia/libre de un lugar reconocible SIN EXIF de GPS, y fijar la flag como su nombre. pista.txt explica el formato. Ver README para el montaje.")
+    solucion="Reconocer el hito visible (edificio/monumento reconocible). Búsqueda inversa de imagen (Google Lens/Yandex). La flag se arma con el nombre del lugar normalizado según pista.txt: CITT{ciudad_lugar}.",
+    build="MANUAL (OBLIGATORIO antes de publicar): 1) reemplazar lugar.jpg (hoy es un placeholder de prueba, NO geolocalizable) por una foto real de un lugar reconocible SIN EXIF de GPS; 2) fijar la flag en flag.txt al formato CITT{ciudad_lugar} de ESE lugar (reemplaza el placeholder CITT{definir_ciudad_lugar}). El enunciado y pista.txt ya prometen ese formato. Verificar que la flag coincide con lo que da una búsqueda inversa.")
 
 add(slug="rastro_social", cat="osint", title="Rastro Social", diff="medio", points=250,
     flag="CITT{un_alias_los_une_a_todos}", deploy="static",
     hint=None, files=["dossier.txt"],
     enunciado="Te damos el nombre de un personaje ficticio que creamos para el campeonato. Usa el mismo alias en varias plataformas. Síguele el rastro hasta donde dejó la flag.",
     solucion="A partir del alias, buscar con sherlock/whatsmyname el perfil en varias redes (todas controladas por la organización). En la bio/último post de una de ellas está la flag.",
-    build="MANUAL: crear un perfil ficticio con alias único en 2-3 plataformas (o simularlo en páginas propias) y dejar la flag en una bio. dossier.txt da el punto de partida. Ver README.")
+    build="MANUAL (OBLIGATORIO antes de publicar): crear un perfil ficticio con un alias único en 2-3 plataformas (o páginas propias) y dejar la flag de este reto (ver fila Flag arriba) en una de las bios. Luego escribir ese alias real en dossier.txt (hoy va en blanco). IMPORTANTE: la flag NO debe aparecer en dossier.txt ni en ningún archivo entregado al jugador; solo en el perfil sembrado.")
 
 add(slug="el_repo_olvidado", cat="osint", title="El Repo Olvidado", diff="medio", points=225,
     flag="CITT{git_log_recuerda_todo}", deploy="static",
     hint=None, files=["pista.txt"],
     enunciado="Un desarrollador 'borró' una credencial de su repositorio público. Pero git nunca olvida. Encuentra la flag en el historial.",
     solucion="Clonar el repo sembrado. La flag se 'eliminó' en un commit posterior pero sigue en el historial: `git log -p`, `git show <commit>` del archivo borrado, o buscar en todos los objetos.",
-    build="MANUAL: crear un repo público (org del track) donde un commit añade la flag y otro la 'borra'. pista.txt da la URL. Ver README.")
+    build="MANUAL (OBLIGATORIO antes de publicar): crear un repo público (org del track): un commit agrega un archivo con la flag de este reto (ver fila Flag arriba) y un commit posterior la 'borra'. Luego escribir la URL real del repo en pista.txt (hoy va en blanco). IMPORTANTE: la flag NO debe aparecer en pista.txt ni en archivos entregados; solo en el historial del repo.")
 
 # ---------------------------------------------------------------- REVERSING (static)
 add(slug="clave_a_la_vista", cat="reversing", title="Clave a la Vista", diff="medio", points=200,
@@ -229,9 +243,15 @@ def write_challenge(ch):
     cat = ch["cat"]; slug = ch["slug"]
     d = os.path.join(ROOT, cat, slug)
     os.makedirs(os.path.join(d, "entrega"), exist_ok=True)
-    minimum = max(50, (ch["points"] // 10) * 10 // 2 * 2)  # ~mitad, redondeado
-    is_whale = ch["deploy"] == "whale"
-    ctype = "dynamic_docker" if is_whale else "dynamic"
+    # Plan B: puntaje FIJO para todos los retos -> minimum == initial (decay inerte).
+    minimum = ch["points"]
+    is_web = ch["deploy"] == "whale"   # 6 retos web: instancia fija externa (Caddy)
+    ctype = "dynamic"                  # todos dynamic; los web NO son dynamic_docker
+
+    # descripción: a los web se les anexa la URL del objetivo
+    descripcion = ch["enunciado"]
+    if is_web:
+        descripcion = descripcion + f"\n\nObjetivo en: {web_url(slug)}"
 
     # challenge.yml
     y = []
@@ -239,17 +259,15 @@ def write_challenge(ch):
     y.append(f'author: "{AUTHOR}"')
     y.append(f'category: {CAT_LABEL[cat]}')
     y.append('description: |')
-    y.append(yml_escape_block(ch["enunciado"]))
+    y.append(yml_escape_block(descripcion))
     y.append(f'type: {ctype}')
     y.append(f'value: {ch["points"]}')
     y.append('extra:')
     y.append(f'  initial: {ch["points"]}')
     y.append(f'  decay: {DECAY}')
-    y.append(f'  minimum: {minimum}')
-    if is_whale:
-        y.append('  # CTFd-whale: completar al cargar (imagen construida desde ./app)')
-        y.append(f'  # docker_image: cybervaras/{slug}:latest')
-        y.append('  # redirect_type: http   # http para web; direct para tcp')
+    y.append(f'  minimum: {minimum}        # == initial -> puntaje fijo')
+    if is_web:
+        y.append(f'  # instancia fija en {web_url(slug)} (droplet retos, vía Caddy)')
     y.append('flags:')
     y.append(f'  - {ch["flag"]}')
     y.append('tags:')
@@ -275,13 +293,13 @@ def write_challenge(ch):
     r.append(f'|---|---|')
     r.append(f'| **Categoría** | {CAT_LABEL[cat]} |')
     r.append(f'| **Dificultad** | {ch["diff"]} |')
-    r.append(f'| **Puntaje base** | {ch["points"]} (dinámico) |')
-    r.append(f'| **Despliegue** | {"whale (contenedor por equipo)" if is_whale else "estático (archivo de entrega)"} |')
+    r.append(f'| **Puntaje** | {ch["points"]} (fijo: minimum == initial) |')
+    r.append(f'| **Despliegue** | {("instancia web fija · " + web_url(slug) + " (droplet retos, vía Caddy)") if is_web else "estático (archivo de entrega)"} |')
     r.append(f'| **Flag** | `{ch["flag"]}` |')
     r.append('')
     r.append('## Enunciado (para el jugador)')
     r.append('')
-    r.append(ch["enunciado"])
+    r.append(descripcion)
     r.append('')
     if ch["hint"]:
         r.append('## Pista (configurable en CTFd)')

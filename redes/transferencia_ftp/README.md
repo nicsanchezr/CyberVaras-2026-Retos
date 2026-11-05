@@ -4,7 +4,7 @@
 |---|---|
 | **Categoría** | Redes |
 | **Dificultad** | medio |
-| **Puntaje base** | 225 (dinámico) |
+| **Puntaje** | 225 (fijo: minimum == initial) |
 | **Despliegue** | estático (archivo de entrega) |
 | **Flag** | `CITT{ftp_export_objects}` |
 
@@ -18,7 +18,7 @@ Identificar el canal de datos FTP (puerto negociado por PASV). En Wireshark: Fol
 
 ## Construcción del reto
 
-Generador (scapy) simula control FTP + canal de datos transfiriendo un .txt con la flag. Ver entrega/build.py.
+Generador (scapy) simula control FTP + canal de datos transfiriendo un .txt con la flag. Ver build/build.py.
 
 **Archivos de entrega:** `entrega/ftp.pcap`
 

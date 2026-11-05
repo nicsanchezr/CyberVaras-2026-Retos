@@ -4,13 +4,15 @@
 |---|---|
 | **Categoría** | Web |
 | **Dificultad** | difícil |
-| **Puntaje base** | 400 (dinámico) |
-| **Despliegue** | whale (contenedor por equipo) |
+| **Puntaje** | 400 (fijo: minimum == initial) |
+| **Despliegue** | instancia web fija · https://lfi.retos.cybervaras.xyz (droplet retos, vía Caddy) |
 | **Flag** | `CITT{lfi_hasta_la_raiz}` |
 
 ## Enunciado (para el jugador)
 
 La página carga 'vistas' según un parámetro. Parece inofensivo, pero el servidor incluye el archivo que le pidas. Lee la flag del sistema.
+
+Objetivo en: https://lfi.retos.cybervaras.xyz
 
 ## Pista (configurable en CTFd)
 

@@ -4,7 +4,7 @@
 |---|---|
 | **Categoría** | Warmup |
 | **Dificultad** | fácil |
-| **Puntaje base** | 50 (dinámico) |
+| **Puntaje** | 50 (fijo: minimum == initial) |
 | **Despliegue** | estático (archivo de entrega) |
 | **Flag** | `CITT{bienvenido_a_cybervaras_2026}` |
 

@@ -4,7 +4,7 @@
 |---|---|
 | **Categoría** | Warmup |
 | **Dificultad** | fácil |
-| **Puntaje base** | 75 (dinámico) |
+| **Puntaje** | 75 (fijo: minimum == initial) |
 | **Despliegue** | estático (archivo de entrega) |
 | **Flag** | `CITT{grep_es_tu_amigo}` |
 
@@ -18,7 +18,7 @@ Te dejamos un montón de archivos en un .tar.gz. En uno de ellos, en alguna lín
 
 ## Construcción del reto
 
-Generador crea 200 archivos .txt de basura y mete la flag en una línea de uno. Empaqueta en pistas.tar.gz. Ver entrega/build.sh.
+Generador crea 200 archivos .txt de basura y mete la flag en una línea de uno. Empaqueta en pistas.tar.gz. Ver build/build.sh.
 
 **Archivos de entrega:** `entrega/pistas.tar.gz`
 

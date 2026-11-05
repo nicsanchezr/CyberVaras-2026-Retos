@@ -4,7 +4,7 @@
 |---|---|
 | **Categoría** | Forense |
 | **Dificultad** | medio |
-| **Puntaje base** | 225 (dinámico) |
+| **Puntaje** | 225 (fijo: minimum == initial) |
 | **Despliegue** | estático (archivo de entrega) |
 | **Flag** | `CITT{binwalk_siempre_gana}` |
 
@@ -18,7 +18,7 @@ Una imagen inocente... que pesa demasiado. Algo trae pegado detrás.
 
 ## Construcción del reto
 
-Generador concatena un ZIP (con flag.txt, protegido) al final de un PNG; pone la pass en un chunk tEXt. Ver entrega/build.py.
+Generador concatena un ZIP (con flag.txt, protegido) al final de un PNG; pone la pass en un chunk tEXt. Ver build/build.py.
 
 **Archivos de entrega:** `entrega/portada.png`
 

@@ -1,0 +1,20 @@
+name: "XXE Clásico"
+author: "Track Ciberseguridad · CITT Antonio Varas"
+category: Web
+description: |
+  El importador de facturas XML de DocFlow procesa el documento que envíes y registra al cliente. ¿Y si el XML pide leer un archivo del propio servidor?
+  
+  Objetivo en: https://xxe.retos.cybervaras.xyz
+type: dynamic
+value: 350
+extra:
+  initial: 350
+  decay: 25
+  minimum: 350        # == initial -> puntaje fijo
+  # instancia fija en https://xxe.retos.cybervaras.xyz (droplet retos, vía Caddy)
+flags:
+  - CITT{xxe_entidades_externas}
+tags:
+  - difícil
+state: hidden
+version: "0.1"

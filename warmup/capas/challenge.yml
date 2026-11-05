@@ -2,13 +2,13 @@ name: "Capas"
 author: "Track Ciberseguridad · CITT Antonio Varas"
 category: Warmup
 description: |
-  Base64 sobre hex sobre base64... la flag está envuelta en varias codificaciones. Ve pelando una a una.
+  La flag está envuelta en varias capas de codificación (base64, hexadecimal y un corrimiento de letras). Ve pelando una a una hasta llegar al centro.
 type: dynamic
 value: 100
 extra:
   initial: 100
   decay: 25
-  minimum: 100
+  minimum: 100        # == initial -> puntaje fijo
 flags:
   - CITT{capa_tras_capa_tras_capa}
 tags:

@@ -1,0 +1,20 @@
+name: "SSRF Interno"
+author: "Track Ciberseguridad · CITT Antonio Varas"
+category: Web
+description: |
+  InfraCloud tiene un verificador que consulta por ti el estado de un servicio interno a partir de su URL. Hazlo consultar la metadata interna de la instancia.
+  
+  Objetivo en: https://ssrf.retos.cybervaras.xyz
+type: dynamic
+value: 350
+extra:
+  initial: 350
+  decay: 25
+  minimum: 350        # == initial -> puntaje fijo
+  # instancia fija en https://ssrf.retos.cybervaras.xyz (droplet retos, vía Caddy)
+flags:
+  - CITT{ssrf_al_metadata_interno}
+tags:
+  - difícil
+state: hidden
+version: "0.1"

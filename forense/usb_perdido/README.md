@@ -4,7 +4,7 @@
 |---|---|
 | **Categoría** | Forense |
 | **Dificultad** | medio |
-| **Puntaje base** | 275 (dinámico) |
+| **Puntaje** | 275 (fijo: minimum == initial) |
 | **Despliegue** | estático (archivo de entrega) |
 | **Flag** | `CITT{nada_se_borra_del_todo}` |
 
@@ -22,7 +22,7 @@ Encontramos un pendrive 'vacío'. La imagen de disco dice otra cosa. Recupera lo
 
 ## Construcción del reto
 
-Generador crea una imagen FAT, escribe un archivo con la flag, lo 'borra' y deja el contenido recuperable. Ver entrega/build.sh.
+Generador crea una imagen FAT, escribe un archivo con la flag, lo 'borra' y deja el contenido recuperable. Ver build/build.sh.
 
 **Archivos de entrega:** `entrega/usb.img`
 

@@ -8,7 +8,7 @@ value: 300
 extra:
   initial: 300
   decay: 25
-  minimum: 300
+  minimum: 300        # == initial -> puntaje fijo
 flags:
   - CITT{exfiltracion_por_dns}
 tags:

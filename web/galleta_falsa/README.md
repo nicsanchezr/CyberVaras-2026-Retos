@@ -4,13 +4,15 @@
 |---|---|
 | **Categoría** | Web |
 | **Dificultad** | medio |
-| **Puntaje base** | 250 (dinámico) |
-| **Despliegue** | whale (contenedor por equipo) |
+| **Puntaje** | 250 (fijo: minimum == initial) |
+| **Despliegue** | instancia web fija · https://cookie.retos.cybervaras.xyz (droplet retos, vía Caddy) |
 | **Flag** | `CITT{cookies_no_son_para_confiar}` |
 
 ## Enunciado (para el jugador)
 
 La aplicación recuerda quién eres con una cookie. Pero la cookie dice más de lo que debería... y nadie comprueba que no la toques.
+
+Objetivo en: https://cookie.retos.cybervaras.xyz
 
 ## Solución (writeup — NO publicar)
 

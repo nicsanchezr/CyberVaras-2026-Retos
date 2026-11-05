@@ -2,12 +2,16 @@ carpeta,slug,nombre,categoria,puntaje,despliegue,flag,dificultad
 warmup,capas,Capas,Warmup,100,static,CITT{capa_tras_capa_tras_capa},fácil
 warmup,insert_coin,insert_coin,Warmup,50,static,CITT{bienvenido_a_cybervaras_2026},fácil
 warmup,terminal_basica,Terminal Básica,Warmup,75,static,CITT{grep_es_tu_amigo},fácil
-web,cambia_el_id,Cambia el ID,Web,200,whale,CITT{idor_acceso_horizontal},medio
-web,galleta_falsa,Galleta Falsa,Web,250,whale,CITT{cookies_no_son_para_confiar},medio
-web,incluyeme,Inclúyeme,Web,400,whale,CITT{lfi_hasta_la_raiz},difícil
-web,login_injectado,Login Injectado,Web,100,whale,CITT{sql_injection_101},fácil
-web,robots_traviesos,Robots Traviesos,Web,125,whale,CITT{nunca_confies_en_robots_txt},fácil
-web,token_quebrado,Token Quebrado,Web,350,whale,CITT{jwt_alg_none_es_peligroso},difícil
+web,cambia_el_id,Cambia el ID,Web,200,web (instancia Caddy),CITT{idor_acceso_horizontal},medio
+web,cazador_agentes,Cazador de Agentes,Web,125,web (instancia Caddy),CITT{el_user_agent_te_delata},fácil
+web,galleta_falsa,Galleta Falsa,Web,250,web (instancia Caddy),CITT{cookies_no_son_para_confiar},medio
+web,incluyeme,Inclúyeme,Web,400,web (instancia Caddy),CITT{lfi_hasta_la_raiz},difícil
+web,login_injectado,Login Injectado,Web,100,web (instancia Caddy),CITT{sql_injection_101},fácil
+web,metodos_http,Métodos HTTP,Web,150,web (instancia Caddy),CITT{metodo_http_olvidado},fácil
+web,robots_traviesos,Robots Traviesos,Web,125,web (instancia Caddy),CITT{nunca_confies_en_robots_txt},fácil
+web,ssrf_interno,SSRF Interno,Web,350,web (instancia Caddy),CITT{ssrf_al_metadata_interno},difícil
+web,token_quebrado,Token Quebrado,Web,350,web (instancia Caddy),CITT{jwt_alg_none_es_peligroso},difícil
+web,xxe_clasico,XXE Clásico,Web,350,web (instancia Caddy),CITT{xxe_entidades_externas},difícil
 crypto,cesar_recargado,César Recargado,Crypto,100,static,CITT{el_cesar_no_protege_nada},fácil
 crypto,hash_expuesto,Hash Expuesto,Crypto,200,static,CITT{rockyou_lo_tenia},medio
 crypto,rsa_fragil,RSA Frágil,Crypto,250,static,CITT{primos_pequenos_rsa_roto},medio
@@ -23,7 +27,7 @@ redes,credenciales_al_aire,Credenciales al Aire,Redes,150,static,CITT{http_en_te
 redes,dns_curioso,DNS Curioso,Redes,300,static,CITT{exfiltracion_por_dns},medio
 redes,telnet_indiscreto,Telnet Indiscreto,Redes,150,static,CITT{telnet_es_inseguro},fácil
 redes,transferencia_ftp,Transferencia FTP,Redes,225,static,CITT{ftp_export_objects},medio
-osint,donde_estoy,¿Dónde Estoy?,OSINT,150,static,CITT{geolocalizado_sin_exif},fácil
+osint,donde_estoy,¿Dónde Estoy?,OSINT,150,static,CITT{definir_ciudad_lugar},fácil
 osint,el_repo_olvidado,El Repo Olvidado,OSINT,225,static,CITT{git_log_recuerda_todo},medio
 osint,rastro_social,Rastro Social,OSINT,250,static,CITT{un_alias_los_une_a_todos},medio
 reversing,clave_a_la_vista,Clave a la Vista,Reversing,200,static,CITT{strings_revela_la_clave},medio

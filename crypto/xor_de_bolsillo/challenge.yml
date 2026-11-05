@@ -8,7 +8,7 @@ value: 125
 extra:
   initial: 125
   decay: 25
-  minimum: 120
+  minimum: 125        # == initial -> puntaje fijo
 flags:
   - CITT{xor_un_byte_es_trivial}
 tags:

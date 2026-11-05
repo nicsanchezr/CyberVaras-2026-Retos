@@ -8,7 +8,7 @@ value: 50
 extra:
   initial: 50
   decay: 25
-  minimum: 50
+  minimum: 50        # == initial -> puntaje fijo
 flags:
   - CITT{bienvenido_a_cybervaras_2026}
 tags:

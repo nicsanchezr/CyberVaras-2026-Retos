@@ -4,7 +4,7 @@
 |---|---|
 | **Categoría** | Reversing |
 | **Dificultad** | medio |
-| **Puntaje base** | 200 (dinámico) |
+| **Puntaje** | 200 (fijo: minimum == initial) |
 | **Despliegue** | estático (archivo de entrega) |
 | **Flag** | `CITT{strings_revela_la_clave}` |
 

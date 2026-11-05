@@ -3,15 +3,15 @@ author: "Track Ciberseguridad · CITT Antonio Varas"
 category: Web
 description: |
   La página carga 'vistas' según un parámetro. Parece inofensivo, pero el servidor incluye el archivo que le pidas. Lee la flag del sistema.
-type: dynamic_docker
+  
+  Objetivo en: https://lfi.retos.cybervaras.xyz
+type: dynamic
 value: 400
 extra:
   initial: 400
   decay: 25
-  minimum: 400
-  # CTFd-whale: completar al cargar (imagen construida desde ./app)
-  # docker_image: cybervaras/incluyeme:latest
-  # redirect_type: http   # http para web; direct para tcp
+  minimum: 400        # == initial -> puntaje fijo
+  # instancia fija en https://lfi.retos.cybervaras.xyz (droplet retos, vía Caddy)
 flags:
   - CITT{lfi_hasta_la_raiz}
 tags:

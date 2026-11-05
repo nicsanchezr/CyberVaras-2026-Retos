@@ -1,0 +1,20 @@
+name: "Cazador de Agentes"
+author: "Track Ciberseguridad · CITT Antonio Varas"
+category: Web
+description: |
+  El feed de inteligencia de Sentinel solo responde a su cliente oficial. Las peticiones desde un navegador son rechazadas. Hazte pasar por el cliente.
+  
+  Objetivo en: https://ua.retos.cybervaras.xyz
+type: dynamic
+value: 125
+extra:
+  initial: 125
+  decay: 25
+  minimum: 125        # == initial -> puntaje fijo
+  # instancia fija en https://ua.retos.cybervaras.xyz (droplet retos, vía Caddy)
+flags:
+  - CITT{el_user_agent_te_delata}
+tags:
+  - fácil
+state: hidden
+version: "0.1"

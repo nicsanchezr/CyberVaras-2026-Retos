@@ -4,7 +4,7 @@
 |---|---|
 | **Categoría** | Crypto |
 | **Dificultad** | medio |
-| **Puntaje base** | 250 (dinámico) |
+| **Puntaje** | 250 (fijo: minimum == initial) |
 | **Despliegue** | estático (archivo de entrega) |
 | **Flag** | `CITT{primos_pequenos_rsa_roto}` |
 
@@ -22,7 +22,7 @@ Factorizar n (pequeño) con factordb o sympy.factorint → p,q. Calcular φ=(p-1
 
 ## Construcción del reto
 
-Generador crea RSA con p,q pequeños, cifra la flag. Guarda n,e,c. Ver entrega/build.py.
+Generador crea RSA con p,q pequeños, cifra la flag. Guarda n,e,c. Ver build/build.py.
 
 **Archivos de entrega:** `entrega/rsa.txt`
 
