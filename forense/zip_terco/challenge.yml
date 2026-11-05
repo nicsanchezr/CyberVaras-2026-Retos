@@ -1,0 +1,19 @@
+name: "ZIP Terco"
+author: "Track Ciberseguridad · CITT Antonio Varas"
+category: Forense
+description: |
+  Una imagen inocente... que pesa demasiado. Algo trae pegado detrás.
+type: dynamic
+value: 225
+extra:
+  initial: 225
+  decay: 25
+  minimum: 220
+flags:
+  - CITT{binwalk_siempre_gana}
+tags:
+  - medio
+files:
+  - entrega/portada.png
+state: hidden
+version: "0.1"

@@ -1,0 +1,19 @@
+name: "Script Enredado"
+author: "Track Ciberseguridad · CITT Antonio Varas"
+category: Reversing
+description: |
+  Un script de Python ofuscado que, al ejecutarse, valida una flag. Pero ofuscar no es cifrar: desenrédalo.
+type: dynamic
+value: 250
+extra:
+  initial: 250
+  decay: 25
+  minimum: 250
+flags:
+  - CITT{ofuscar_no_es_cifrar}
+tags:
+  - medio
+files:
+  - entrega/reto.py
+state: hidden
+version: "0.1"

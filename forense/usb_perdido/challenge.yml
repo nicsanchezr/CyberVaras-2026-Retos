@@ -1,0 +1,19 @@
+name: "USB Perdido"
+author: "Track Ciberseguridad · CITT Antonio Varas"
+category: Forense
+description: |
+  Encontramos un pendrive 'vacío'. La imagen de disco dice otra cosa. Recupera lo que borraron.
+type: dynamic
+value: 275
+extra:
+  initial: 275
+  decay: 25
+  minimum: 270
+flags:
+  - CITT{nada_se_borra_del_todo}
+tags:
+  - medio
+files:
+  - entrega/usb.img
+state: hidden
+version: "0.1"

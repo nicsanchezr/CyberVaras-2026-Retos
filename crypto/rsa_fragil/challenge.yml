@@ -1,0 +1,19 @@
+name: "RSA Frágil"
+author: "Track Ciberseguridad · CITT Antonio Varas"
+category: Crypto
+description: |
+  Te damos n, e y c de un cifrado RSA. El problema: eligieron primos demasiado pequeños.
+type: dynamic
+value: 250
+extra:
+  initial: 250
+  decay: 25
+  minimum: 250
+flags:
+  - CITT{primos_pequenos_rsa_roto}
+tags:
+  - medio
+files:
+  - entrega/rsa.txt
+state: hidden
+version: "0.1"

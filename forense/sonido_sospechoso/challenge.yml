@@ -1,0 +1,19 @@
+name: "Sonido Sospechoso"
+author: "Track Ciberseguridad · CITT Antonio Varas"
+category: Forense
+description: |
+  Un audio con un pitido raro. La flag no está en lo que oyes, sino en lo que ves.
+type: dynamic
+value: 250
+extra:
+  initial: 250
+  decay: 25
+  minimum: 250
+flags:
+  - CITT{escucha_el_espectrograma}
+tags:
+  - medio
+files:
+  - entrega/senal.wav
+state: hidden
+version: "0.1"

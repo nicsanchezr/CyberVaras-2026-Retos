@@ -1,0 +1,1 @@
+CITT{xor_un_byte_es_trivial}

@@ -1,0 +1,25 @@
+name,description,category,value,type,state,flags,tags
+Capas,Base64 sobre hex sobre base64... la flag está envuelta en varias codificaciones. Ve pelando una a una.,Warmup,100,dynamic,hidden,CITT{capa_tras_capa_tras_capa},fácil
+insert_coin,Toda buena partida empieza metiendo una ficha. La flag está escondida a plena vista en la propia web del campeonato (https://2026.cybervaras.xyz). Mira donde nadie mira.,Warmup,50,dynamic,hidden,CITT{bienvenido_a_cybervaras_2026},fácil
+Terminal Básica,"Te dejamos un montón de archivos en un .tar.gz. En uno de ellos, en alguna línea perdida, está la flag. Descomprime y busca con las herramientas de siempre.",Warmup,75,dynamic,hidden,CITT{grep_es_tu_amigo},fácil
+César Recargado,Un mensaje cifrado con un método que tiene 2000 años. Rómpelo.,Crypto,100,dynamic,hidden,CITT{el_cesar_no_protege_nada},fácil
+Hash Expuesto,Filtramos una tabla de hashes. Varios son contraseñas comunes. Crackéalas: la flag se arma con las contraseñas recuperadas.,Crypto,200,dynamic,hidden,CITT{rockyou_lo_tenia},medio
+RSA Frágil,"Te damos n, e y c de un cifrado RSA. El problema: eligieron primos demasiado pequeños.",Crypto,250,dynamic,hidden,CITT{primos_pequenos_rsa_roto},medio
+XOR de Bolsillo,Cifrado XOR con una clave de un solo byte. 256 posibilidades. Tú puedes.,Crypto,125,dynamic,hidden,CITT{xor_un_byte_es_trivial},fácil
+XOR Reciclado,Reusaron una clave corta para cifrar un texto largo con XOR. Ese es su error.,Crypto,275,dynamic,hidden,CITT{clave_repetida_mala_idea},medio
+Bitácora Rota,Alguien atacó este servidor web. Entre miles de líneas de log hay una serie de peticiones sospechosas. Reconstruye el ataque y encuentra la flag.,Forense,250,dynamic,hidden,CITT{el_log_delata_al_atacante},medio
+Metadatos Delatores,Una foto de lo más común. Pero las fotos guardan más de lo que muestran. Revisa sus metadatos.,Forense,100,dynamic,hidden,CITT{los_metadatos_hablan},fácil
+Píxel Oculto,Esta imagen esconde texto en sus bits menos significativos. Extráelo.,Forense,150,dynamic,hidden,CITT{el_bit_menos_significativo},fácil
+Sonido Sospechoso,"Un audio con un pitido raro. La flag no está en lo que oyes, sino en lo que ves.",Forense,250,dynamic,hidden,CITT{escucha_el_espectrograma},medio
+USB Perdido,Encontramos un pendrive 'vacío'. La imagen de disco dice otra cosa. Recupera lo que borraron.,Forense,275,dynamic,hidden,CITT{nada_se_borra_del_todo},medio
+ZIP Terco,Una imagen inocente... que pesa demasiado. Algo trae pegado detrás.,Forense,225,dynamic,hidden,CITT{binwalk_siempre_gana},medio
+Credenciales al Aire,Capturamos tráfico de una red. Alguien inició sesión por HTTP (sin HTTPS). Sus credenciales viajaron en claro... y una de ellas es la flag.,Redes,150,dynamic,hidden,CITT{http_en_texto_claro},fácil
+DNS Curioso,"Un host hace un montón de consultas DNS a un dominio sospechoso, con subdominios larguísimos. Están exfiltrando datos. Recupéralos.",Redes,300,dynamic,hidden,CITT{exfiltracion_por_dns},medio
+Telnet Indiscreto,Telnet no cifra nada. Reconstruye la sesión de este pcap y lee lo que el usuario escribió.,Redes,150,dynamic,hidden,CITT{telnet_es_inseguro},fácil
+Transferencia FTP,En esta captura alguien transfirió un archivo por FTP. Recupéralo: dentro está la flag.,Redes,225,dynamic,hidden,CITT{ftp_export_objects},medio
+¿Dónde Estoy?,Esta foto NO tiene metadatos de ubicación. Pero se reconoce el lugar. Identifícalo: la flag es el nombre del lugar en el formato que indica la pista.,OSINT,150,dynamic,hidden,CITT{geolocalizado_sin_exif},fácil
+El Repo Olvidado,Un desarrollador 'borró' una credencial de su repositorio público. Pero git nunca olvida. Encuentra la flag en el historial.,OSINT,225,dynamic,hidden,CITT{git_log_recuerda_todo},medio
+Rastro Social,Te damos el nombre de un personaje ficticio que creamos para el campeonato. Usa el mismo alias en varias plataformas. Síguele el rastro hasta donde dejó la flag.,OSINT,250,dynamic,hidden,CITT{un_alias_los_une_a_todos},medio
+Clave a la Vista,"Un binario te pide una contraseña. Si aciertas, te da la flag. La contraseña está más a la vista de lo que crees.",Reversing,200,dynamic,hidden,CITT{strings_revela_la_clave},medio
+Script Enredado,"Un script de Python ofuscado que, al ejecutarse, valida una flag. Pero ofuscar no es cifrar: desenrédalo.",Reversing,250,dynamic,hidden,CITT{ofuscar_no_es_cifrar},medio
+XOR en Binario,"La flag no aparece con strings porque el binario la arma en tiempo de ejecución, byte a byte, con XOR. Tienes que analizarlo.",Reversing,400,dynamic,hidden,CITT{xor_en_tiempo_de_ejecucion},difícil

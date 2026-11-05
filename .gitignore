@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+**/_tmp*
+**/_base.png
+**/_secret.zip
+.DS_Store

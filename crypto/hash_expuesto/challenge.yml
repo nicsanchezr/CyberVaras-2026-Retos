@@ -1,0 +1,19 @@
+name: "Hash Expuesto"
+author: "Track Ciberseguridad · CITT Antonio Varas"
+category: Crypto
+description: |
+  Filtramos una tabla de hashes. Varios son contraseñas comunes. Crackéalas: la flag se arma con las contraseñas recuperadas.
+type: dynamic
+value: 200
+extra:
+  initial: 200
+  decay: 25
+  minimum: 200
+flags:
+  - CITT{rockyou_lo_tenia}
+tags:
+  - medio
+files:
+  - entrega/hashes.txt
+state: hidden
+version: "0.1"

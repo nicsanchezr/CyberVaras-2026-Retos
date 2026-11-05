@@ -1,0 +1,19 @@
+name: "Píxel Oculto"
+author: "Track Ciberseguridad · CITT Antonio Varas"
+category: Forense
+description: |
+  Esta imagen esconde texto en sus bits menos significativos. Extráelo.
+type: dynamic
+value: 150
+extra:
+  initial: 150
+  decay: 25
+  minimum: 150
+flags:
+  - CITT{el_bit_menos_significativo}
+tags:
+  - fácil
+files:
+  - entrega/secreto.png
+state: hidden
+version: "0.1"

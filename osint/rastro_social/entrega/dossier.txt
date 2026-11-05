@@ -1,0 +1,14 @@
+CyberVaras 2026 :: OSINT :: Rastro Social
+
+Personaje ficticio creado para el campeonato. Usa el MISMO alias en varias
+plataformas. Síguele el rastro: en la biografía o en una publicación de una de sus
+cuentas dejó la flag.
+
+  Alias:   [COMPLETAR POR LA ORGANIZACIÓN — p. ej. "v4r4s_ghost_2026"]
+  Pista:   el alias es único; herramientas como sherlock o whatsmyname lo encuentran.
+
+La flag tiene el formato CITT{...} y está en texto plano en uno de los perfiles.
+
+[ NOTA INTERNA — no incluir en la entrega al jugador:
+  crear 2–3 perfiles (o páginas propias) con ese alias y poner la flag
+  CITT{un_alias_los_une_a_todos} en una bio. Dejar aquí solo el alias. ]

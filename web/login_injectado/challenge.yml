@@ -1,0 +1,20 @@
+name: "Login Injectado"
+author: "Track Ciberseguridad · CITT Antonio Varas"
+category: Web
+description: |
+  Un panel de login de lo más normal. ¿Seguro que valida bien lo que escribes? Entra como administrador.
+type: dynamic_docker
+value: 100
+extra:
+  initial: 100
+  decay: 25
+  minimum: 100
+  # CTFd-whale: completar al cargar (imagen construida desde ./app)
+  # docker_image: cybervaras/login_injectado:latest
+  # redirect_type: http   # http para web; direct para tcp
+flags:
+  - CITT{sql_injection_101}
+tags:
+  - fácil
+state: hidden
+version: "0.1"

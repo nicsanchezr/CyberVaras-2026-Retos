@@ -1,0 +1,19 @@
+name: "Credenciales al Aire"
+author: "Track Ciberseguridad · CITT Antonio Varas"
+category: Redes
+description: |
+  Capturamos tráfico de una red. Alguien inició sesión por HTTP (sin HTTPS). Sus credenciales viajaron en claro... y una de ellas es la flag.
+type: dynamic
+value: 150
+extra:
+  initial: 150
+  decay: 25
+  minimum: 150
+flags:
+  - CITT{http_en_texto_claro}
+tags:
+  - fácil
+files:
+  - entrega/captura.pcap
+state: hidden
+version: "0.1"

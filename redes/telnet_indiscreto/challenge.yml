@@ -1,0 +1,19 @@
+name: "Telnet Indiscreto"
+author: "Track Ciberseguridad · CITT Antonio Varas"
+category: Redes
+description: |
+  Telnet no cifra nada. Reconstruye la sesión de este pcap y lee lo que el usuario escribió.
+type: dynamic
+value: 150
+extra:
+  initial: 150
+  decay: 25
+  minimum: 150
+flags:
+  - CITT{telnet_es_inseguro}
+tags:
+  - fácil
+files:
+  - entrega/telnet.pcap
+state: hidden
+version: "0.1"

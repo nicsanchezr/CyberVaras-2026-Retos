@@ -1,0 +1,8 @@
+CyberVaras 2026 :: OSINT :: El Repo Olvidado
+
+Un desarrollador subió una credencial a un repositorio público y luego la "borró"
+en un commit posterior. Pero git conserva el historial completo.
+
+  Repositorio:  https://github.com/nicsanchezr/intranet-cybervaras   
+
+La flag (formato CITT{...}) está en el contenido de un archivo eliminado.

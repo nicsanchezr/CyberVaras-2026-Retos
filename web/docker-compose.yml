@@ -1,0 +1,22 @@
+# docker-compose SOLO para pruebas locales de los 6 retos web.
+# En produccion, cada reto se despliega como imagen aislada por equipo con
+# CTFd-whale (ver import/README_import.md). Aqui cada uno expone un puerto fijo.
+services:
+  login_injectado:
+    build: ./login_injectado
+    ports: ["5001:5000"]
+  robots_traviesos:
+    build: ./robots_traviesos
+    ports: ["5002:5000"]
+  cambia_el_id:
+    build: ./cambia_el_id
+    ports: ["5003:5000"]
+  galleta_falsa:
+    build: ./galleta_falsa
+    ports: ["5004:5000"]
+  token_quebrado:
+    build: ./token_quebrado
+    ports: ["5005:5000"]
+  incluyeme:
+    build: ./incluyeme
+    ports: ["5006:5000"]

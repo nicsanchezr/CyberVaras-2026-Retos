@@ -1,0 +1,19 @@
+name: "Rastro Social"
+author: "Track Ciberseguridad · CITT Antonio Varas"
+category: OSINT
+description: |
+  Te damos el nombre de un personaje ficticio que creamos para el campeonato. Usa el mismo alias en varias plataformas. Síguele el rastro hasta donde dejó la flag.
+type: dynamic
+value: 250
+extra:
+  initial: 250
+  decay: 25
+  minimum: 250
+flags:
+  - CITT{un_alias_los_une_a_todos}
+tags:
+  - medio
+files:
+  - entrega/dossier.txt
+state: hidden
+version: "0.1"

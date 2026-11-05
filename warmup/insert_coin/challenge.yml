@@ -1,0 +1,17 @@
+name: "insert_coin"
+author: "Track Ciberseguridad · CITT Antonio Varas"
+category: Warmup
+description: |
+  Toda buena partida empieza metiendo una ficha. La flag está escondida a plena vista en la propia web del campeonato (https://2026.cybervaras.xyz). Mira donde nadie mira.
+type: dynamic
+value: 50
+extra:
+  initial: 50
+  decay: 25
+  minimum: 50
+flags:
+  - CITT{bienvenido_a_cybervaras_2026}
+tags:
+  - fácil
+state: hidden
+version: "0.1"

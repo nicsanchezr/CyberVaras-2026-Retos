@@ -1,0 +1,9 @@
+CyberVaras 2026 :: OSINT :: Rastro Social
+
+Personaje ficticio del campeonato. Usa el MISMO alias en varias plataformas.
+Siguele el rastro: una cuenta lleva a la otra, y en una de ellas dejo la flag.
+
+  Alias:   v4r4sgh0st2026
+
+La flag tiene el formato CITT{...}.
+

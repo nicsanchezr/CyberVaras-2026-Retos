@@ -1,0 +1,19 @@
+name: "Terminal Básica"
+author: "Track Ciberseguridad · CITT Antonio Varas"
+category: Warmup
+description: |
+  Te dejamos un montón de archivos en un .tar.gz. En uno de ellos, en alguna línea perdida, está la flag. Descomprime y busca con las herramientas de siempre.
+type: dynamic
+value: 75
+extra:
+  initial: 75
+  decay: 25
+  minimum: 70
+flags:
+  - CITT{grep_es_tu_amigo}
+tags:
+  - fácil
+files:
+  - entrega/pistas.tar.gz
+state: hidden
+version: "0.1"

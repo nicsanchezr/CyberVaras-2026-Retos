@@ -1,0 +1,1 @@
+La flag es CITT{<nombre_de_la_gata>_<ciudad_donde_creció>_<año_del_post>} todo en minúsculas y sin tildes.

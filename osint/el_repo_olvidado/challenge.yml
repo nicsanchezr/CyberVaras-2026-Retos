@@ -1,0 +1,19 @@
+name: "El Repo Olvidado"
+author: "Track Ciberseguridad · CITT Antonio Varas"
+category: OSINT
+description: |
+  Un desarrollador 'borró' una credencial de su repositorio público. Pero git nunca olvida. Encuentra la flag en el historial.
+type: dynamic
+value: 225
+extra:
+  initial: 225
+  decay: 25
+  minimum: 220
+flags:
+  - CITT{git_log_recuerda_todo}
+tags:
+  - medio
+files:
+  - entrega/pista.txt
+state: hidden
+version: "0.1"

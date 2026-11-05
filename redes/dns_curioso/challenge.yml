@@ -1,0 +1,19 @@
+name: "DNS Curioso"
+author: "Track Ciberseguridad · CITT Antonio Varas"
+category: Redes
+description: |
+  Un host hace un montón de consultas DNS a un dominio sospechoso, con subdominios larguísimos. Están exfiltrando datos. Recupéralos.
+type: dynamic
+value: 300
+extra:
+  initial: 300
+  decay: 25
+  minimum: 300
+flags:
+  - CITT{exfiltracion_por_dns}
+tags:
+  - medio
+files:
+  - entrega/dns.pcap
+state: hidden
+version: "0.1"

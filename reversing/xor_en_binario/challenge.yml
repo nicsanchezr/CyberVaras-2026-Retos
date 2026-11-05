@@ -1,0 +1,19 @@
+name: "XOR en Binario"
+author: "Track Ciberseguridad · CITT Antonio Varas"
+category: Reversing
+description: |
+  La flag no aparece con strings porque el binario la arma en tiempo de ejecución, byte a byte, con XOR. Tienes que analizarlo.
+type: dynamic
+value: 400
+extra:
+  initial: 400
+  decay: 25
+  minimum: 400
+flags:
+  - CITT{xor_en_tiempo_de_ejecucion}
+tags:
+  - difícil
+files:
+  - entrega/xorme
+state: hidden
+version: "0.1"

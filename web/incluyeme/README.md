@@ -1,0 +1,26 @@
+# Web · Inclúyeme
+
+| | |
+|---|---|
+| **Categoría** | Web |
+| **Dificultad** | difícil |
+| **Puntaje base** | 400 (dinámico) |
+| **Despliegue** | whale (contenedor por equipo) |
+| **Flag** | `CITT{lfi_hasta_la_raiz}` |
+
+## Enunciado (para el jugador)
+
+La página carga 'vistas' según un parámetro. Parece inofensivo, pero el servidor incluye el archivo que le pidas. Lee la flag del sistema.
+
+## Pista (configurable en CTFd)
+
+> El parámetro de idioma termina siendo una ruta de archivo. ¿Hasta dónde puedes subir?
+
+## Solución (writeup — NO publicar)
+
+LFI en `/?page=home`. Path traversal `?page=../../../../etc/passwd` confirma. La flag está en un archivo fuera del webroot, p. ej. `?page=../../../../flag.txt` o vía filtros php/wrappers. Para el reto, la flag vive en /flag.txt dentro del contenedor.
+
+## Construcción del reto
+
+App Flask incluye plantillas por nombre sin sanitizar (open(path).read()). flag.txt en / del contenedor. Ver app/.
+

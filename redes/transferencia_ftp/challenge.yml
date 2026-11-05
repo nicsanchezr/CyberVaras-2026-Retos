@@ -1,0 +1,19 @@
+name: "Transferencia FTP"
+author: "Track Ciberseguridad · CITT Antonio Varas"
+category: Redes
+description: |
+  En esta captura alguien transfirió un archivo por FTP. Recupéralo: dentro está la flag.
+type: dynamic
+value: 225
+extra:
+  initial: 225
+  decay: 25
+  minimum: 220
+flags:
+  - CITT{ftp_export_objects}
+tags:
+  - medio
+files:
+  - entrega/ftp.pcap
+state: hidden
+version: "0.1"

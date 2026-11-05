@@ -1,0 +1,2 @@
+Cada número es un carácter cifrado por separado (c = m^e mod n).
+n es muy pequeño: factorízalo. La flag es CITT{rsa_de_juguete_XXXX} con lo que obtengas.

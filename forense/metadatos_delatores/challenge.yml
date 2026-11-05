@@ -1,0 +1,19 @@
+name: "Metadatos Delatores"
+author: "Track Ciberseguridad · CITT Antonio Varas"
+category: Forense
+description: |
+  Una foto de lo más común. Pero las fotos guardan más de lo que muestran. Revisa sus metadatos.
+type: dynamic
+value: 100
+extra:
+  initial: 100
+  decay: 25
+  minimum: 100
+flags:
+  - CITT{los_metadatos_hablan}
+tags:
+  - fácil
+files:
+  - entrega/foto.jpg
+state: hidden
+version: "0.1"

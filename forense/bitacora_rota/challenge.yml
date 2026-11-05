@@ -1,0 +1,19 @@
+name: "Bitácora Rota"
+author: "Track Ciberseguridad · CITT Antonio Varas"
+category: Forense
+description: |
+  Alguien atacó este servidor web. Entre miles de líneas de log hay una serie de peticiones sospechosas. Reconstruye el ataque y encuentra la flag.
+type: dynamic
+value: 250
+extra:
+  initial: 250
+  decay: 25
+  minimum: 250
+flags:
+  - CITT{el_log_delata_al_atacante}
+tags:
+  - medio
+files:
+  - entrega/access.log
+state: hidden
+version: "0.1"

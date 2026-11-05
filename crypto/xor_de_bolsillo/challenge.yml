@@ -1,0 +1,19 @@
+name: "XOR de Bolsillo"
+author: "Track Ciberseguridad · CITT Antonio Varas"
+category: Crypto
+description: |
+  Cifrado XOR con una clave de un solo byte. 256 posibilidades. Tú puedes.
+type: dynamic
+value: 125
+extra:
+  initial: 125
+  decay: 25
+  minimum: 120
+flags:
+  - CITT{xor_un_byte_es_trivial}
+tags:
+  - fácil
+files:
+  - entrega/cipher.hex
+state: hidden
+version: "0.1"

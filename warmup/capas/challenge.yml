@@ -1,0 +1,19 @@
+name: "Capas"
+author: "Track Ciberseguridad · CITT Antonio Varas"
+category: Warmup
+description: |
+  Base64 sobre hex sobre base64... la flag está envuelta en varias codificaciones. Ve pelando una a una.
+type: dynamic
+value: 100
+extra:
+  initial: 100
+  decay: 25
+  minimum: 100
+flags:
+  - CITT{capa_tras_capa_tras_capa}
+tags:
+  - fácil
+files:
+  - entrega/capas.txt
+state: hidden
+version: "0.1"

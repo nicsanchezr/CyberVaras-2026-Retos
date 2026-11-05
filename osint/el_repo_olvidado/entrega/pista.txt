@@ -1,0 +1,17 @@
+CyberVaras 2026 :: OSINT :: El Repo Olvidado
+
+Un desarrollador subió una credencial a un repositorio público y luego la "borró"
+en un commit posterior. Pero git conserva el historial completo.
+
+  Repositorio: [COMPLETAR POR LA ORGANIZACIÓN — URL del repo sembrado]
+
+Pasos sugeridos:
+  git clone <repo> && cd <repo>
+  git log --oneline --all
+  git log -p            # o: git show <commit_que_agrego_la_flag>
+
+La flag (formato CITT{...}) está en el contenido de un archivo eliminado.
+
+[ NOTA INTERNA — no incluir en la entrega al jugador:
+  crear repo público (org del track): commit 1 agrega archivo con
+  CITT{git_log_recuerda_todo}; commit 2 lo elimina. Dejar aquí solo la URL. ]

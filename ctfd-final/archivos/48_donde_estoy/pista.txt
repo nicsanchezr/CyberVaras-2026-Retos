@@ -1,0 +1,11 @@
+CyberVaras 2026 :: OSINT :: ¿Dónde Estoy?
+
+La imagen lugar.jpg NO tiene coordenadas GPS en sus metadatos. Identifica el lugar
+por lo que se ve (edificios, señalética, entorno) usando búsqueda inversa de imagen
+(Google Lens, Yandex, Bing Visual Search).
+
+Formato de la flag:
+  CITT{ciudad_lugar}   -> todo en minúsculas, sin tildes, espacios como "_"
+
+Ejemplo de formato (NO es la respuesta):
+  Una foto del Costanera Center en Santiago -> CITT{santiago_costanera_center}

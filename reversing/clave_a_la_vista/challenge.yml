@@ -1,0 +1,19 @@
+name: "Clave a la Vista"
+author: "Track Ciberseguridad · CITT Antonio Varas"
+category: Reversing
+description: |
+  Un binario te pide una contraseña. Si aciertas, te da la flag. La contraseña está más a la vista de lo que crees.
+type: dynamic
+value: 200
+extra:
+  initial: 200
+  decay: 25
+  minimum: 200
+flags:
+  - CITT{strings_revela_la_clave}
+tags:
+  - medio
+files:
+  - entrega/crackme
+state: hidden
+version: "0.1"

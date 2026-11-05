@@ -1,0 +1,19 @@
+name: "XOR Reciclado"
+author: "Track Ciberseguridad · CITT Antonio Varas"
+category: Crypto
+description: |
+  Reusaron una clave corta para cifrar un texto largo con XOR. Ese es su error.
+type: dynamic
+value: 275
+extra:
+  initial: 275
+  decay: 25
+  minimum: 270
+flags:
+  - CITT{clave_repetida_mala_idea}
+tags:
+  - medio
+files:
+  - entrega/cipher.bin
+state: hidden
+version: "0.1"

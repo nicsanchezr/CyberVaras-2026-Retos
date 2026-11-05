@@ -1,0 +1,19 @@
+name: "César Recargado"
+author: "Track Ciberseguridad · CITT Antonio Varas"
+category: Crypto
+description: |
+  Un mensaje cifrado con un método que tiene 2000 años. Rómpelo.
+type: dynamic
+value: 100
+extra:
+  initial: 100
+  decay: 25
+  minimum: 100
+flags:
+  - CITT{el_cesar_no_protege_nada}
+tags:
+  - fácil
+files:
+  - entrega/mensaje.txt
+state: hidden
+version: "0.1"
